@@ -123,27 +123,50 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Coleta de leite</h2>
+          <h2>Gado</h2>
         </div>
 
         <div class="row">
 
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+          <div class="colS-lg-12" data-aos="fade-up" data-aos-delay="300">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Criador: <input type="text" name="name" class="form-control" id="name" placeholder="Digite o criador" data-rule="minlen:4" data-msg="" /> 
+                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" /> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                  Coleta: <input type="date" class="form-control" name="coleta" id="coleta" placeholder="Digite dados da coleta" data-rule="email" data-msg="l" />
+                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" /> 
                   <div class="validate"></div>
                 </div>
-              </div>
-              <div class="form-group">
-                Gado leiteiro: <input type="number" class="form-control" name="gado" id="gado" placeholder="Digite o gado leiteiro" data-rule="minlen:4" data-msg="" />
+                <div class="col-lg-6 form-group">
+                    Rebanho <input type="text" name="cd_rebanho" class="form-control" id="cd_rebanho" placeholder="Digite o rebanho" data-rule="minlen:4" data-msg="" /> 
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-6 form-group">
+                    Preço <input type="number" name="vl_preco" class="form-control" id="vl_preco" placeholder="Digite o preço" data-rule="minlen:4" data-msg="" /> 
+                  <div class="validate"></div>
+                  </div>              
+                <div class="col-lg-6 form-group">
+                    Pai <input type="text" name="cd_pai" class="form-control" id="cd_pai" placeholder="Digite o Pai" data-rule="minlen:4" data-msg="" /> 
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-6 form-group">
+                    Mãe <input type="text" name="cd_mae" class="form-control" id="cd_mae" placeholder="Digite a Mãe" data-rule="minlen:4" data-msg="" /> 
+                  <div class="validate"></div>
+                </div>              
+                <div class="col-lg-7 form-group">
+                  Sexo 
+                  <label>
+                    <input name="sexo" type="radio" id="Feminino" value="Feminino" checked/>
+                    <span>Feminino</span>
+                </label>
+                <label>
+                    <input name="sexo" type="radio" id="masculino" value="Masculino"/>
+                    <span>Masculino</span>
+                </label>                  
                 <div class="validate"></div>
-              </div>
+              </div>                  
               <div class="text-center"><button type="submit">Cadastrar</button></div>
             </form>
           </div>

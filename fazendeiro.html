@@ -123,7 +123,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Coleta de leite</h2>
+          <h2>Fazendeiro</h2>
         </div>
 
         <div class="row">
@@ -132,17 +132,37 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Criador: <input type="text" name="name" class="form-control" id="name" placeholder="Digite o criador" data-rule="minlen:4" data-msg="" /> 
+                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" /> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                  Coleta: <input type="date" class="form-control" name="coleta" id="coleta" placeholder="Digite dados da coleta" data-rule="email" data-msg="l" />
+                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" /> 
                   <div class="validate"></div>
                 </div>
-              </div>
-              <div class="form-group">
-                Gado leiteiro: <input type="number" class="form-control" name="gado" id="gado" placeholder="Digite o gado leiteiro" data-rule="minlen:4" data-msg="" />
+                <div class="col-lg-6 form-group">
+                    CPF <input type="number" name="nm_cpf" class="form-control" id="nm_cpf" placeholder=" _._._-__" data-rule="minlen:4" data-msg="" /> 
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-6 form-group">
+                    RG <input type="number" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" /> 
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-6 form-group">
+                  Endereço <input type="text" name="nm_endereco" class="form-control" id="nm_endereco" placeholder="Digite o endereço" data-rule="minlen:4" data-msg="" /> 
                 <div class="validate"></div>
+              </div>
+                <div class="col-lg-7 form-group">
+                  Sexo 
+                  <label>
+                    <input name="sexo" type="radio" id="Feminino" value="Feminino" checked/>
+                    <span>Feminino</span>
+                </label>
+                <label>
+                    <input name="sexo" type="radio" id="masculino" value="Masculino"/>
+                    <span>Masculino</span>
+                </label>                  
+                <div class="validate"></div>
+              </div>              
               </div>
               <div class="text-center"><button type="submit">Cadastrar</button></div>
             </form>
