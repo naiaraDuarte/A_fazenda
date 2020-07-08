@@ -62,6 +62,7 @@ function gravar(){
         return true;
     return false;
 }
+// Função para a para a coleta de Leite
 
 function zerofill(i) {
     return (i < 10 ? '0' : '') + i;
