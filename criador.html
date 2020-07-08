@@ -140,11 +140,11 @@
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    CPF <input type="number" name="nm_cpf" class="form-control" id="nm_cpf" placeholder=" _._._-__" data-rule="minlen:4" data-msg="" /> 
+                    CPF <input type="text" name="nm_cpf" class="form-control" id="nm_cpf" data-rule="minlen:4" data-msg="" maxlength="14" onkeyup="validar(this)"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    RG <input type="number" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" /> 
+                    RG <input type="text" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" onkeypress="validar(this)"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
@@ -196,6 +196,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/validacao.js"></script>
 
 </body>
 
