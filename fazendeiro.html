@@ -53,7 +53,7 @@
               <li><a href="criador.html">Criador</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contato</a></li>
+          <li><a href="#contact">Fazendeiro</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -132,23 +132,23 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" /> 
+                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onkeypress="validar(this);"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" /> 
+                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" onkeypress=""/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    CPF <input type="number" name="nm_cpf" class="form-control" id="nm_cpf" placeholder=" _._._-__" data-rule="minlen:4" data-msg="" /> 
+                    CPF <input type="text" name="nm_cpf" class="form-control" id="nm_cpf" placeholder=" _._._-__" data-rule="minlen:4" data-msg="" maxlength="14" onkeypress="validar(this);"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    RG <input type="number" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" /> 
+                    RG <input type="number" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" onkeypress="validar(this);"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                  Endereço <input type="text" name="nm_endereco" class="form-control" id="nm_endereco" placeholder="Digite o endereço" data-rule="minlen:4" data-msg="" /> 
+                  Endereço <input type="text" name="nm_endereco" class="form-control" id="nm_endereco" placeholder="Digite o endereço" data-rule="minlen:4" data-msg="" onkeypress="validar(this);"/> 
                 <div class="validate"></div>
               </div>
                 <div class="col-lg-7 form-group">
@@ -164,7 +164,7 @@
                 <div class="validate"></div>
               </div>              
               </div>
-              <div class="text-center"><button type="submit">Cadastrar</button></div>
+              <div class="text-center"><button type="submit" onclick="gravar();">Cadastrar</button></div>
             </form>
           </div>
         </div>
@@ -192,6 +192,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/validacao.js"></script>
 
 </body>
 

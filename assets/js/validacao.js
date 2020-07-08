@@ -5,7 +5,7 @@ let validacao = false;
 function validar(elemento) {
     // caso a validacao seja falsa, colore o input de vermelho
     let vermelho = () => { 
-        elemento.style.borderColor = "red"
+        elemento.style.borderColor = "red";
         validacao = false;
     };
     // caso a validacao seja verdadeira, colore o input de verde
@@ -20,6 +20,7 @@ function validar(elemento) {
          else 
              verde();
      }
+     // verifica se o elemento passado via argumento é do tipo text (ex: <input type='date'>)
     if(elemento.type == "date"){
         let data = new Date(elemento.value);
         if(data < new Date("01/01/1997") || data > new Date())
@@ -60,4 +61,16 @@ function gravar(){
     if(validacao)
         return true;
     return false;
+}
+
+function zerofill(i) {
+    return (i < 10 ? '0' : '') + i;
+}
+
+function getDateString() {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = zerofill(date.getMonth()+1);
+    const day = zerofill(date.getDate());
+    return year + '-' + month + '-' + day;
 }
