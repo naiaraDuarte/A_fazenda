@@ -1,8 +1,8 @@
 <?php
-    include 'database.php';
+    include '../sistema/database.php';
     $res_consulta = execute_query("SELECT * FROM `tb_criador`");
 ?>
-<table style = "font-size:0.8rem; text-align= center;">
+<table style = "font-size:0.8rem; text-align: center;">
     <thead>
         <tr>
             <th>Nome</th>
@@ -30,6 +30,6 @@
                 <a href="criador.html?id=<?php echo $dados['nome']; ?>">Alterar</a>
             </td>
         </tr>
-        <? php endforeach;?>
+        <?php endforeach;?>
     </tbody>
 </table>

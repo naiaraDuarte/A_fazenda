@@ -18,7 +18,7 @@
             $result = $database->query($sql);
             if($result != null) {
                 $found = $result->fetch_all(MYSQLI_ASSOC);
-                echo 'registro localizado com sucesso.';
+                //echo 'registro localizado com sucesso.';
             }
         }catch(Exception $e) {
             echo '<br>Nao foi possivel realizar esta operacao';
