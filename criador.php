@@ -1,3 +1,6 @@
+<?php include 'sistema/database.php';
+  $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_STRING);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +15,7 @@
   <!-- Favicons -->
   <link href="assets/img/favVaca.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
@@ -36,23 +40,23 @@
     <div class="container">
 
       <div class="logo float-left">
-        <h1 class="text-light"><a href="index.html"><span>Muuuuh</span></a></h1>
+        <h1 class="text-light"><a href="index.php"><span>Muuuuh</span></a></h1>
       </div>
 
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="index.php">Home</a></li>
           <li class="drop-down"><a href="">Funções</a>
             <ul>
-              <li><a href="coletaLeite.html">Coleta de leite</a></li>
-              <li><a href="gadoLeiteiro.html">Gado leiteiro</a></li>
-              <li><a href="fazendeiro.html">Fazendeiro</a></li>
-              <li><a href="rebanho.html">Rebanho</a></li>
-              <li><a href="gado.html">Gado</a></li>
-              <li><a href="criador.html">Criador</a></li>
+              <li><a href="coletaLeite.php">Coleta de leite</a></li>
+              <li><a href="gadoLeiteiro.php">Gado leiteiro</a></li>
+              <li><a href="fazendeiro.php">Fazendeiro</a></li>
+              <li><a href="rebanho.php">Rebanho</a></li>
+              <li><a href="gado.php">Gado</a></li>
+              <li><a href="criador.php">Criador</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Fazendeiro</a></li>
+          <li><a href="#contact">Criador</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -64,7 +68,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Fazendeiro</h2>
+          <h2>Criador</h2>
         </div>
 
         <div class="row">
@@ -73,24 +77,29 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onkeypress="valithisdar();"/> 
+                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" /> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" onkeypress=""/> 
+                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" /> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    CPF <input type="text" name="nm_cpf" class="form-control" id="nm_cpf" placeholder=" _._._-__" data-rule="minlen:4" data-msg="" maxlength="14" onkeypress="validar(this);"/> 
+                    CPF <input type="text" name="nm_cpf" class="form-control" id="nm_cpf" data-rule="minlen:4" data-msg="" maxlength="14" onkeyup="validar(this)"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    RG <input type="number" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" onkeypress="validar(this);"/> 
+                    RG <input type="text" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" onkeypress="validar(this)"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                  Endereço <input type="text" name="nm_endereco" class="form-control" id="nm_endereco" placeholder="Digite o endereço" data-rule="minlen:4" data-msg="" onkeypress="validar(this);"/> 
+                  Endereço <input type="text" name="nm_endereco" class="form-control" id="nm_endereco" placeholder="Digite o endereço" data-rule="minlen:4" data-msg="" /> 
                 <div class="validate"></div>
+              </div>
+              <div class="col-lg-6 form-group">
+                Salário <input type="number" name="vl_salario" class="form-control" id="vl_salario" placeholder="Digite o salário" data-rule="minlen:4" data-msg="" /> 
+              <div class="validate"></div>
+            </div>          
               </div>
                 <div class="col-lg-7 form-group">
                   Sexo 
@@ -103,9 +112,8 @@
                     <span>Masculino</span>
                 </label>                  
                 <div class="validate"></div>
-              </div>              
-              </div>
-              <div class="text-center"><button type="submit" onclick="gravar();">Cadastrar</button></div>
+              </div>                  
+              <div class="text-center"><button type="submit">Cadastrar</button></div>
             </form>
           </div>
         </div>

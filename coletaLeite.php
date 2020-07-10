@@ -1,3 +1,6 @@
+<?php include 'sistema/database.php';
+  $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_STRING);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +14,7 @@
   <!-- Favicons -->
   <link href="assets/img/favVaca.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
@@ -35,20 +39,20 @@
     <div class="container">
 
       <div class="logo float-left">
-        <h1 class="text-light"><a href="index.html"><span>Muuuuh</span></a></h1>
+        <h1 class="text-light"><a href="index.php"><span>Muuuuh</span></a></h1>
       </div>
 
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="index.php">Home</a></li>
           <li class="drop-down"><a href="">Funções</a>
             <ul>
-              <li><a href="coletaLeite.html">Coleta de leite</a></li>
-              <li><a href="gadoLeiteiro.html">Gado leiteiro</a></li>
-              <li><a href="fazendeiro.html">Fazendeiro</a></li>
-              <li><a href="rebanho.html">Rebanho</a></li>
-              <li><a href="gado.html">Gado</a></li>
-              <li><a href="criador.html">Criador</a></li>
+              <li><a href="coletaLeite.php">Coleta de leite</a></li>
+              <li><a href="gadoLeiteiro.php">Gado leiteiro</a></li>
+              <li><a href="fazendeiro.php">Fazendeiro</a></li>
+              <li><a href="rebanho.php">Rebanho</a></li>
+              <li><a href="gado.php">Gado</a></li>
+              <li><a href="criador.php">Criador</a></li>
             </ul>
           </li>
           <li><a href="#contact">Coleta</a></li>
@@ -84,7 +88,12 @@
                 Gado leiteiro: <input type="number" class="form-control" name="gado" id="gado" placeholder="Digite o código do gado leiteiro" data-rule="minlen:4" data-msg="" min="0"/>
                 <div class="validate"></div>
               </div>
-              <div class="text-center"><button type="submit">Cadastrar</button></div>
+              <div class="text-center">
+                <button type="submit">Cadastrar</button>
+                <button type="reset">Limpar</button>
+              </div>
+              <input type="hidden" name="tipo" value="tb_coleta_leite">
+              <input name="id" id="id" type="hidden" value="<?php echo $id; ?>">
             </form>
           </div>
         </div>

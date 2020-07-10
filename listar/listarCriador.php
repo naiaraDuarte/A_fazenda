@@ -1,8 +1,5 @@
-<?php
-    include '../sistema/database.php';
-    $res_consulta = execute_query("SELECT * FROM `tb_criador`");
-?>
-<table style = "font-size:0.8rem; text-align: center;">
+<?php $res_consulta = execute_query("SELECT * FROM `tb_criador`"); ?>
+<table>
     <thead>
         <tr>
             <th>Nome</th>
@@ -17,7 +14,7 @@
     </thead>
     <tbody>
         <?php foreach($res_consulta as $dados) : ?>
-        <tr style="font-size: 12px;">
+        <tr>
             <td><?php echo $dados['nome']; ?></td>
             <td><?php echo $dados['dataNasc'] ?></td>
             <td><?php echo $dados['cpf'] ?></td>

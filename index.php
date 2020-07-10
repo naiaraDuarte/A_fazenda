@@ -36,20 +36,20 @@
     <div class="container">
 
       <div class="logo float-left">
-        <h1 class="text-light"><a href="index.html"><span>Muuuuh</span></a></h1>
+        <h1 class="text-light"><a href="index.php"><span>Muuuuh</span></a></h1>
       </div>
 
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="index.php">Home</a></li>
           <li class="drop-down"><a href="">Funções</a>
             <ul>
-              <li><a href="coletaLeite.html">Coleta de leite</a></li>
-              <li><a href="gadoLeiteiro.html">Gado leiteiro</a></li>
-              <li><a href="fazendeiro.html">Fazendeiro</a></li>
-              <li><a href="rebanho.html">Rebanho</a></li>
-              <li><a href="gado.html">Gado</a></li>
-              <li><a href="criador.html">Criador</a></li>
+              <li><a href="coletaLeite.php">Coleta de leite</a></li>
+              <li><a href="gadoLeiteiro.php">Gado leiteiro</a></li>
+              <li><a href="fazendeiro.php">Fazendeiro</a></li>
+              <li><a href="rebanho.php">Rebanho</a></li>
+              <li><a href="gado.php">Gado</a></li>
+              <li><a href="criador.php">Criador</a></li>
             </ul>
           </li>
           <li><a href="#about">Sobre</a></li>

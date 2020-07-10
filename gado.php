@@ -1,3 +1,6 @@
+<?php include 'sistema/database.php';
+  $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_STRING);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +15,11 @@
   <!-- Favicons -->
   <link href="assets/img/favVaca.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
-
+  
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -36,23 +40,23 @@
     <div class="container">
 
       <div class="logo float-left">
-        <h1 class="text-light"><a href="index.html"><span>Muuuuh</span></a></h1>
+        <h1 class="text-light"><a href="index.php"><span>Muuuuh</span></a></h1>
       </div>
 
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="index.php">Home</a></li>
           <li class="drop-down"><a href="">Funções</a>
             <ul>
-              <li><a href="coletaLeite.html">Coleta de leite</a></li>
-              <li><a href="gadoLeiteiro.html">Gado leiteiro</a></li>
-              <li><a href="fazendeiro.html">Fazendeiro</a></li>
-              <li><a href="rebanho.html">Rebanho</a></li>
-              <li><a href="gado.html">Gado</a></li>
-              <li><a href="criador.html">Criador</a></li>
+              <li><a href="coletaLeite.php">Coleta de leite</a></li>
+              <li><a href="gadoLeiteiro.php">Gado leiteiro</a></li>
+              <li><a href="fazendeiro.php">Fazendeiro</a></li>
+              <li><a href="rebanho.php">Rebanho</a></li>
+              <li><a href="gado.php">Gado</a></li>
+              <li><a href="criador.php">Criador</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Gado Leiteiro</a></li>
+          <li><a href="#contact">Gado</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -64,24 +68,51 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Gado Leiteiro</h2>
+          <h2>Gado</h2>
         </div>
 
         <div class="row">
 
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+          <div class="colS-lg-12" data-aos="fade-up" data-aos-delay="300">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Gado: <input type="number" name="cd_gado" class="form-control" id="cd_gado" placeholder="Digite o código do gado" data-rule="minlen:4" data-msg="" min="0"/> 
+                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onkeyup="validar(this)"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Criador: <input type="number" name="cd_gado" class="form-control" id="cd_criador" placeholder="Digite o código do criador" data-rule="minlen:4" data-msg="" min="0"/> 
+                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" onkeyup="validar(this)"/> 
                   <div class="validate"></div>
                 </div>
-              </div>
-              <div class="text-center"><button type="submit">Cadastrar</button></div>
+                <div class="col-lg-6 form-group">
+                    Rebanho <input type="text" name="cd_rebanho" class="form-control" id="cd_rebanho" placeholder="Digite o rebanho" data-rule="minlen:4" data-msg="" onkeyup="validar(this)"/> 
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-6 form-group">
+                    Preço R$: <input type="number" name="vl_preco" class="form-control" id="vl_preco" placeholder="Digite o preço" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" min="0"/> 
+                  <div class="validate"></div>
+                  </div>              
+                <div class="col-lg-6 form-group">
+                    Pai <input type="text" name="cd_pai" class="form-control" id="cd_pai" placeholder="Digite o Pai" data-rule="minlen:4" data-msg="" onkeyup="validar(this)"/> 
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-6 form-group">
+                    Mãe <input type="text" name="cd_mae" class="form-control" id="cd_mae" placeholder="Digite a Mãe" data-rule="minlen:4" data-msg="" onkeyup="validar(this)"/> 
+                  <div class="validate"></div>
+                </div>              
+                <div class="col-lg-7 form-group">
+                  Sexo 
+                  <label>
+                    <input name="sexo" type="radio" id="Feminino" value="Feminino" checked onkeyup="validar(this)"/>
+                    <span>Feminino</span>
+                </label>
+                <label>
+                    <input name="sexo" type="radio" id="masculino" value="Masculino"/>
+                    <span>Masculino</span>
+                </label>                  
+                <div class="validate"></div>
+              </div>                  
+              <div class="text-center"><button type="submit" onclick="gravar();">Cadastrar</button></div>
             </form>
           </div>
         </div>
@@ -109,7 +140,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="assets/js/validacao.js"></script>
 </body>
 
 </html>

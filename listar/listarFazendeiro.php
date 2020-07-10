@@ -1,7 +1,4 @@
-<?php
-    include '../sistema/database.php';
-    $res_consulta = execute_query("SELECT * FROM `tb_fazendeiro`");
-?>
+<?php $res_consulta = execute_query("SELECT * FROM `tb_fazendeiro`");?>
 <table style="font-size:0.8rem; text-align: center;">
     <thead>
         <tr>
