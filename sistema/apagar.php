@@ -6,7 +6,8 @@
         echo 'dados recebidos';
         echo 'id cargo:'. $id;
     }
-        $sql = "delete from `$tipo` where id = $id";
+        $sql = "delete from `$tipo` where CD_CODIGO = $id";
+        header('Location: /vaca/coletaLeite.php');
     execute($sql);
     echo '<script>console.log("Deletado com sucesso!")</script>';
     exit;

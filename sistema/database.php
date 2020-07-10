@@ -4,6 +4,7 @@
     function execute($sql = null) {
         $database = open_database();
         try {
+            echo $sql;
             $database->query($sql);
             echo 'Operacao realizada com sucesso';
         } catch (Exception $e){
