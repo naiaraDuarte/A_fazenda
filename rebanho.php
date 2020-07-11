@@ -73,7 +73,7 @@
         <div class="row">
 
           <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="forms/contact.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-12 form-group">
                     Fazendeiro: <input type="number" name="cd_fazendeiro" class="form-control" id="cd_fazendeiro" placeholder="Digite o código do fazendeiro" data-rule="minlen:4" data-msg="" min="0"/> 
@@ -81,7 +81,7 @@
                 </div>                
               </div>
               <div class="text-center">
-                <button type="submit">Cadastrar</button>
+                <button type="submit"onclick="gravar();">Cadastrar</button>
                 <button type="reset">Limpar</button>
               </div>
               <input type="hidden" name="tipo" value="tb_rebanho">
@@ -116,6 +116,11 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/validacao.js"></script>
+
+  <script>
+    let rebanho = document.querySelector("#rebanho");
+    rebanho.value = getDateString();
+  </script>
 
 </body>
 

@@ -22,7 +22,7 @@
                 //echo 'registro localizado com sucesso.';
             }
         }catch(Exception $e) {
-            echo '<br>Nao foi possivel realizar esta operacao';
+            echo 'Nao foi possivel realizar esta operacao';
         }
         close_database($database);
         return $found;

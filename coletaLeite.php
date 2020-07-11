@@ -102,6 +102,7 @@
     </section><!-- End Contact Us Section -->
     <section class="tabela">
           <?php include 'listar/listarColeta.php' ?>
+          
     </section>
 
   </main><!-- End #main -->

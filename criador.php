@@ -74,7 +74,7 @@
         <div class="row">
 
           <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
                     Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" /> 
@@ -113,13 +113,22 @@
                 </label>                  
                 <div class="validate"></div>
               </div>                  
-              <div class="text-center"><button type="submit">Cadastrar</button></div>
+              <div class="text-center">
+              <button type="submit" onclick="gravar();">Cadastrar</button>
+              <button type="reset">Limpar</button>
+              </div>
+              <input type="hidden" name="tipo" value="tb_criador">
+              <input name="id" id="id" type="hidden" value="<?php echo $id; ?>">
             </form>
           </div>
         </div>
 
       </div>
     </section><!-- End Contact Us Section -->
+    <section class="tabela">
+          <?php include 'listar/listarColeta.php' ?>
+          
+    </section>
 
   </main><!-- End #main -->
 
@@ -143,6 +152,10 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/validacao.js"></script>
 
+  <script>
+    let criador = document.querySelector("#criador");
+    criador.value = getDateString();
+  </script>
 </body>
 
 </html>
