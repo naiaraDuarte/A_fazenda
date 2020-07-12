@@ -114,7 +114,7 @@
                 <div class="validate"></div>
               </div>                  
               <div class="text-center">
-              <button type="submit" onclick="gravar();">Cadastrar</button>
+              <button type="submit" onclick="gravar();"><?php echo ($id != NULL) ? 'Alterar' : 'Cadastrar'; ?></button>
               <button type="reset">Limpar</button>
               </div>
               <input type="hidden" name="tipo" value="tb_criador">
@@ -126,7 +126,7 @@
       </div>
     </section><!-- End Contact Us Section -->
     <section class="tabela">
-          <?php include 'listar/listarColeta.php' ?>
+          <?php include 'listar/listarCriador.php' ?>
           
     </section>
 

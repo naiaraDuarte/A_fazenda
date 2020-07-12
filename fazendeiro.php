@@ -1,5 +1,28 @@
 <?php include 'sistema/database.php';
   $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_STRING);
+
+  $nm_nome = '';
+  $dt_nasc = '';
+  $nm_cpf = '';
+  $nm_rg = '';
+  $nm_sexo = '';
+  $nm_endereco = '';
+
+  if($id != NULL) {
+    $sql = sprintf("SELECT * FROM `tb_fazendeiro` WHERE `CD_CODIGO` = '%s'", $id);
+    $consulta = execute_query($sql);
+
+    if(isset($consulta)) {
+      foreach($consulta as $dado) {
+        $nm_nome = $dado['NM_NOME'];
+        $dt_nasc = $dado['DT_NASC'];
+        $nm_cpf = $dado['NM_CPF'];
+        $nm_rg = $dado['NM_RG'];
+        $nm_sexo = $dado['NM_SEXO'];
+        $nm_endereco = $dado['NM_ENDERECO'];
+      }
+    }
+  }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,43 +100,43 @@
             <form action="processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onkeypress="valithisdar();"/> 
+                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onkeypress="valithisdar();" value="<?php echo $nm_nome; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" onkeypress=""/> 
+                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" onkeypress="" value="<?php echo $dt_nasc; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    CPF <input type="text" name="nm_cpf" class="form-control" id="nm_cpf" placeholder=" _._._-__" data-rule="minlen:4" data-msg="" maxlength="14" onkeypress="validar(this);"/> 
+                    CPF <input type="text" name="nm_cpf" class="form-control" id="nm_cpf" placeholder=" _._._-__" data-rule="minlen:4" data-msg="" maxlength="14" onkeypress="validar(this);" value="<?php echo $nm_cpf; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    RG <input type="number" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" onkeypress="validar(this);"/> 
+                    RG <input type="number" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" onkeypress="validar(this);" value="<?php echo $nm_rg; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                  Endereço <input type="text" name="nm_endereco" class="form-control" id="nm_endereco" placeholder="Digite o endereço" data-rule="minlen:4" data-msg="" onkeypress="validar(this);"/> 
+                  Endereço <input type="text" name="nm_endereco" class="form-control" id="nm_endereco" placeholder="Digite o endereço" data-rule="minlen:4" data-msg="" onkeypress="validar(this);" value="<?php echo $nm_endereco; ?>"/> 
                 <div class="validate"></div>
               </div>
                 <div class="col-lg-7 form-group">
                   Sexo 
                   <label>
-                    <input name="sexo" type="radio" id="Feminino" value="Feminino" checked/>
+                    <input name="sexo" type="radio" id="Feminino" value="F" <?php echo ($nm_sexo == 'F' || $id == NULL) ? 'checked' : '' ?>/>
                     <span>Feminino</span>
                 </label>
                 <label>
-                    <input name="sexo" type="radio" id="masculino" value="Masculino"/>
+                    <input name="sexo" type="radio" id="masculino" value="M" <?php echo ($nm_sexo == 'M') ? 'checked' : '' ?>/>
                     <span>Masculino</span>
                 </label>                  
                 <div class="validate"></div>
               </div>              
               </div>
               <div class="text-center">
-              <button type="submit" onclick="gravar();">Cadastrar</button>
+              <button type="submit" onclick="gravar();"><?php echo ($id != NULL) ? 'Alterar' : 'Cadastrar'; ?></button>
               <button type="reset">Limpar</button>
               </div>
-              <input type="hidden" name="tipo" value="tb_criador">
+              <input type="hidden" name="tipo" value="tb_fazendeiro">
               <input name="id" id="id" type="hidden" value="<?php echo $id; ?>">
             </form>
           </div>

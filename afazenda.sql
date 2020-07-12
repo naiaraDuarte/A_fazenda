@@ -45,7 +45,7 @@ CREATE TABLE `tb_criador` (
   `CD_CODIGO` int(11) NOT NULL,
   `NM_NOME` varchar(100) NOT NULL,
   `DT_NASC` date NOT NULL,
-  `NM_CPF` varchar(11) NOT NULL,
+  `NM_CPF` varchar(14) NOT NULL,
   `NM_RG` varchar(9) NOT NULL,
   `NM_SEXO` varchar(1) NOT NULL,
   `NM_ENDERECO` varchar(100) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE `tb_fazendeiro` (
   `CD_CODIGO` int(11) NOT NULL,
   `NM_NOME` varchar(100) NOT NULL,
   `DT_NASC` date NOT NULL,
-  `NM_CPF` varchar(11) NOT NULL,
+  `NM_CPF` varchar(14) NOT NULL,
   `NM_RG` varchar(9) NOT NULL,
   `NM_SEXO` varchar(1) NOT NULL,
   `NM_ENDERECO` varchar(100) NOT NULL

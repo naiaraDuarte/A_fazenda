@@ -1,30 +1,32 @@
 <?php $res_consulta = execute_query("SELECT * FROM `tb_gado`"); ?>
-<table style="font-size: 0.8rem; text-align: center;">
+<table>
     <thead>
         <tr>
             <th>Nome</th>
-            <th>Data de nascimento</th>
             <th>Rebanho</th>
-            <th>Preço</th>
+            <th>Nome</th>
+            <th>Data de nascimento</th>
+            <th>Sexo</th>
             <th>Pai</th>
             <th>Mãe</th>
-            <th>Sexo</th>
+            <th>Preço</th>
             <th colspan="3">Ações</th>
         </tr>
     </thead>
-    <tbody">
+    <tbody>
         <?php foreach($res_consulta as $dados) : ?>
-        <tr style="font-size: 12px;">
-            <td><?php echo $dados['nome']; ?></td>
-            <td><?php echo $dados['dataNasc']; ?></td>
-            <td><?php echo $dados['rebanho']; ?></td>
-            <td><?php echo $dados['preco']; ?></td>
-            <td><?php echo $dados['pai']; ?></td>
-            <td><?php echo $dados['mae']; ?></td>
-            <td><?php echo $dados['sexo']; ?></td>
+        <tr>
+            <td><?php echo $dados['CD_CODIGO']; ?></td>
+            <td><?php echo $dados['CD_REBANHO']; ?></td>
+            <td><?php echo $dados['NM_NOME']; ?></td>
+            <td><?php echo $dados['DT_NASC']; ?></td>
+            <td><?php echo $dados['NM_SEXO']; ?></td>
+            <td><?php echo $dados['CD_PAI']; ?></td>
+            <td><?php echo $dados['CD_MAE']; ?></td>
+            <td><?php echo $dados['VL_PRECO']; ?></td>
             <td style="width: 150px;">
-                <a href="apagar.php">Excluir</a>
-                <a href="gado.html?id=<?php echo $dados['criador']; ?>">Alterar</a>
+            <a title="Alterar" href="rebanho.php?id=<?php echo $dados['CD_CODIGO']; ?>"><i class="material-icons">create</i></a>
+                <a title="Deletar" href="sistema/apagar.php?id=<?php echo $dados['CD_CODIGO'];?>&tipo=tb_gado"><i class="material-icons">delete</i></a>
             </td>
         </tr>
         <?php  endforeach;?>

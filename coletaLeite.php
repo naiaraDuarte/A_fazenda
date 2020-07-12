@@ -1,5 +1,22 @@
 <?php include 'sistema/database.php';
   $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_STRING);
+
+  $cd_criador = '';
+  $dt_coleta = '';
+  $cd_gado_leiteiro = '';
+
+  if($id != NULL) {
+    $sql = sprintf("SELECT * FROM `tb_coleta_leite` WHERE `CD_CODIGO` = '%s'", $id);
+    $consulta = execute_query($sql);
+
+    if(isset($consulta)) {
+      foreach($consulta as $dado) {
+        $cd_criador = $dado['CD_CRIADOR'];
+        $cd_gado_leiteiro = $dado['CD_GADO_LEITEIRO'];
+        $dt_coleta = $dado['DT_COLETA'];
+      }
+    }
+  }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,20 +93,20 @@
             <form action="processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Criador: <input type="number" name="name" class="form-control" id="name" placeholder="Digite o criador" data-rule="minlen:4" data-msg="" onkeypress="validar(this);"/> 
+                    Criador: <input type="number" name="name" class="form-control" id="name" placeholder="Digite o criador" data-rule="minlen:4" data-msg="" onkeypress="validar(this);" value="<?php echo $cd_criador; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                  Coleta: <input type="date" class="form-control" name="coleta" id="coleta" placeholder="Digite dados da coleta" data-rule="text" data-msg="l"/>
+                  Coleta: <input type="date" class="form-control" name="coleta" id="coleta" placeholder="Digite dados da coleta" data-rule="text" data-msg="l" value="<?php echo $dt_coleta; ?>"/>
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="form-group">
-                Gado leiteiro: <input type="number" class="form-control" name="gado" id="gado" placeholder="Digite o código do gado leiteiro" data-rule="minlen:4" data-msg="" min="0"/>
+                Gado leiteiro: <input type="number" class="form-control" name="gado" id="gado" placeholder="Digite o código do gado leiteiro" data-rule="minlen:4" data-msg="" min="0" value="<?php echo $cd_gado_leiteiro; ?>"/>
                 <div class="validate"></div>
               </div>
               <div class="text-center">
-                <button type="submit">Cadastrar</button>
+                <button type="submit" onclick="gravar();"><?php echo ($id != NULL) ? 'Alterar' : 'Cadastrar'; ?></button>
                 <button type="reset">Limpar</button>
               </div>
               <input type="hidden" name="tipo" value="tb_coleta_leite">
@@ -100,7 +117,7 @@
 
       </div>
     </section><!-- End Contact Us Section -->
-    <section class="tabela">
+    <section class="tabela" data-aos="fade-up" data-aos-delay="300">
           <?php include 'listar/listarColeta.php' ?>
           
     </section>
@@ -128,8 +145,12 @@
   <script src="assets/js/validacao.js"></script>
 
   <script>
-    let coleta = document.querySelector("#coleta");
-    coleta.value = getDateString();
+    document.addEventListener("DOMContentLoaded", () => {
+      let coleta = document.querySelector("#coleta");
+      if(coleta.value != null || coleta.value != undefined) {
+      coleta.value = getDateString();
+      }
+    });
   </script>
 
 </body>

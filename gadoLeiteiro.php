@@ -1,5 +1,20 @@
 <?php include 'sistema/database.php';
   $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_STRING);
+
+  $cd_criador = '';
+  $cd_gado = '';
+
+  if($id != NULL) {
+    $sql = sprintf("SELECT * FROM `tb_gado_leiteiro` WHERE `CD_CODIGO` = '%s'", $id);
+    $consulta = execute_query($sql);
+
+    if(isset($consulta)) {
+      foreach($consulta as $dado) {
+        $cd_criador = $dado['CD_CRIADOR'];
+        $cd_gado = $dado['CD_GADO'];
+      }
+    }
+  }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,16 +92,16 @@
             <form action="processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Gado: <input type="number" name="cd_gado" class="form-control" id="cd_gado" placeholder="Digite o código do gado" data-rule="minlen:4" data-msg="" min="0"/> 
+                    Gado: <input type="number" name="cd_gado" class="form-control" id="cd_gado" placeholder="Digite o código do gado" data-rule="minlen:4" data-msg="" min="0" value="<?php echo $cd_gado; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Criador: <input type="number" name="cd_gado" class="form-control" id="cd_criador" placeholder="Digite o código do criador" data-rule="minlen:4" data-msg="" min="0"/> 
+                    Criador: <input type="number" name="cd_gado" class="form-control" id="cd_criador" placeholder="Digite o código do criador" data-rule="minlen:4" data-msg="" min="0" value="<?php echo $cd_criador; ?>"/> 
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="text-center">
-                <button type="submit"onclick="gravar();">Cadastrar</button>
+                <button type="submit"onclick="gravar();"><?php echo ($id != NULL) ? 'Alterar' : 'Cadastrar'; ?></button>
                 <button type="reset">Limpar</button>
               </div>
               <input type="hidden" name="tipo" value="tb_gado_leiteiro">

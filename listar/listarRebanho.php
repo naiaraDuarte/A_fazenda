@@ -13,8 +13,8 @@
             <td><?php echo $dados['CD_CODIGO']; ?></td>
             <td><?php echo $dados['CD_FAZENDEIRO']; ?></td>
             <td style="width: 150px;">
-                <a title="Alterar" href="coletaLeite.php?id=<?php echo $dados['CD_CODIGO']; ?>"><i class="material-icons">create</i></a>
-                <a title="Deletar" href="sistema/apagar.php?id=<?php echo $dados['CD_CODIGO'];?>&tipo=tb_coleta_leite"><i class="material-icons">delete</i></a>
+                <a title="Alterar" href="rebanho.php?id=<?php echo $dados['CD_CODIGO']; ?>"><i class="material-icons">create</i></a>
+                <a title="Deletar" href="sistema/apagar.php?id=<?php echo $dados['CD_CODIGO'];?>&tipo=tb_rebanho"><i class="material-icons">delete</i></a>
             </td>
         </tr>
         <?php  endforeach;?>

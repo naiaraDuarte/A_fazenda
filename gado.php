@@ -113,11 +113,11 @@
                 <div class="validate"></div>
               </div>                  
               <div class="text-center">
-              <button type="submit" onclick="gravar();">Cadastrar</button>
-              <button type="reset">Limpar</button>
+              <button type="submit" onclick="gravar();"><?php echo ($id != NULL) ? 'Alterar' : 'Cadastrar'; ?></button>
+                <button type="reset">Limpar</button>
               </div>
-              <input type="hidden" name="tipo" value="tb_criador">
-              <input name="id" id="id" type="hidden" value="<?php echo $id; ?>">
+                <input type="hidden" name="tipo" value="tb_gado">
+                <input name="id" id="id" type="hidden" value="<?php echo $id; ?>">
             </form>
           </div>
         </div>
