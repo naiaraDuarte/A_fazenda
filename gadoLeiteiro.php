@@ -96,7 +96,7 @@
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Criador: <input type="number" name="cd_gado" class="form-control" id="cd_criador" placeholder="Digite o código do criador" data-rule="minlen:4" data-msg="" min="0" value="<?php echo $cd_criador; ?>"/> 
+                    Criador: <input type="number" name="cd_criador" class="form-control" id="cd_criador" placeholder="Digite o código do criador" data-rule="minlen:4" data-msg="" min="0" value="<?php echo $cd_criador; ?>"/> 
                   <div class="validate"></div>
                 </div>
               </div>
