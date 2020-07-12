@@ -3,16 +3,18 @@
     $tipo = filter_input(INPUT_GET, 'tipo', FILTER_SANITIZE_STRING);
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 
+    $tabelas_permitidas = array('tb_coleta_leite', 'tb_rebanho', 'tb_gado', 'tb_fazendeiro', 'tb_gado_leiteiro', 'tb_criador');
 
-    if($tipo == 'tb_coleta_leite' || $tipo == 'tb_rebanho' || $tipo == 'tb_gado' || $tipo == 'tb_fazendeiro' || $tipo == 'tb_gado_leiteiro' || $tipo == 'tb_criador'){
-        $sql = "DELETE FROM `$tipo` WHERE `CD_CODIGO` = $id";
-        execute($sql);
-    } else {
-        die('Tipo inválido');
+
+    foreach ($tabelas_permitidas as $tabela) {
+        if($tipo == $tabela){
+            $sql = "DELETE FROM `$tipo` WHERE `CD_CODIGO` = $id";
+            execute($sql);
+            header('Location: ../coletaLeite.php');
+            break;
+        }
     }
 
-   // volta uma pasta anterior...
-    header('Location: ../coletaLeite.php');
-    
-    exit;
+die('Tipo inválido');
+exit;
 ?>

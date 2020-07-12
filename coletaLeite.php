@@ -93,7 +93,7 @@
             <form action="processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Criador: <input type="number" name="name" class="form-control" id="name" placeholder="Digite o criador" data-rule="minlen:4" data-msg="" onkeypress="validar(this);" value="<?php echo $cd_criador; ?>"/> 
+                    Criador: <input type="number" name="name" class="form-control" id="name" placeholder="Digite o criador" data-rule="minlen:4" data-msg="" onfocusout="validar(this);" onkeyup="validar(this);" value="<?php echo $cd_criador; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
@@ -147,8 +147,9 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       let coleta = document.querySelector("#coleta");
-      if(coleta.value != null || coleta.value != undefined) {
-      coleta.value = getDateString();
+      let coletaDoBanco = "<?php echo $dt_coleta; ?>";
+      if(coletaDoBanco == '') {
+        coleta.value = getDateString();
       }
     });
   </script>

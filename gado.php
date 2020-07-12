@@ -102,27 +102,27 @@
             <form action="processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Nome: <input type="text" name="nm_nome" class="form-control" id="nm_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" value="<?php echo $nm_nome; ?>"/> 
+                    Nome: <input type="text" name="nm_nome" class="form-control" id="nm_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onfocusout="validar(this);" onkeyup="validar(this);" value="<?php echo $nm_nome; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" value="<?php echo $dt_nasc; ?>"/> 
+                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" onfocusout="validar(this);" onkeyup="validar(this);" value="<?php echo $dt_nasc; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Rebanho <input type="text" name="cd_rebanho" class="form-control" id="cd_rebanho" placeholder="Digite o rebanho" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" value="<?php echo $cd_rebanho; ?>"/> 
+                    Rebanho <input type="text" name="cd_rebanho" class="form-control" id="cd_rebanho" placeholder="Digite o rebanho" data-rule="minlen:4" data-msg="" onfocusout="validar(this);" onkeyup="validar(this);" value="<?php echo $cd_rebanho; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Preço R$: <input type="number" name="vl_preco" class="form-control" id="vl_preco" placeholder="Digite o preço" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" min="0" value="<?php echo $vl_preco; ?>"/> 
+                    Preço R$: <input type="number" name="vl_preco" class="form-control" id="vl_preco" placeholder="Digite o preço" data-rule="minlen:4" data-msg="" onfocusout="validar(this);" onkeyup="validar(this);" min="0" value="<?php echo $vl_preco; ?>"/> 
                   <div class="validate"></div>
                   </div>              
                 <div class="col-lg-6 form-group">
-                    Pai <input type="text" name="cd_pai" class="form-control" id="cd_pai" placeholder="Digite o Pai" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" value="<?php echo $cd_pai; ?>"/> 
+                    Pai <input type="text" name="cd_pai" class="form-control" id="cd_pai" placeholder="Digite o Pai" data-rule="minlen:4" data-msg="" onfocusout="validar(this);" onkeyup="validar(this);" value="<?php echo $cd_pai; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Mãe <input type="text" name="cd_mae" class="form-control" id="cd_mae" placeholder="Digite a Mãe" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" value="<?php echo $cd_mae; ?>"/> 
+                    Mãe <input type="text" name="cd_mae" class="form-control" id="cd_mae" placeholder="Digite a Mãe" data-rule="minlen:4" data-msg="" onfocusout="validar(this);" onkeyup="validar(this);" value="<?php echo $cd_mae; ?>"/> 
                   <div class="validate"></div>
                 </div>              
                 <div class="col-lg-7 form-group">

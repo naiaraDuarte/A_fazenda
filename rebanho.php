@@ -1,7 +1,7 @@
 <?php include 'sistema/database.php';
   $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_STRING);
 
-  $cd_fazendeiro = '';
+  $cd_fazendeiro = 0;
 
   if($id != NULL) {
     $sql = sprintf("SELECT * FROM `tb_rebanho` WHERE `CD_CODIGO` = '%s'", $id);
