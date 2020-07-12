@@ -74,7 +74,7 @@
         <div class="row">
 
           <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <form action="forms/contact.php" method="post" class="email-form">
+            <form action="processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
                     Gado: <input type="number" name="cd_gado" class="form-control" id="cd_gado" placeholder="Digite o código do gado" data-rule="minlen:4" data-msg="" min="0"/> 

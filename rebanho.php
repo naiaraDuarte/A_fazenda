@@ -73,7 +73,7 @@
         <div class="row">
 
           <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <form action="forms/contact.php" method="post" class="email-form">
+            <form action="processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-12 form-group">
                     Fazendeiro: <input type="number" name="cd_fazendeiro" class="form-control" id="cd_fazendeiro" placeholder="Digite o código do fazendeiro" data-rule="minlen:4" data-msg="" min="0"/> 
