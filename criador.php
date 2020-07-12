@@ -110,7 +110,7 @@
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    CPF <input type="text" name="nm_cpf" class="form-control" id="nm_cpf" data-rule="minlen:4" data-msg="" maxlength="14" onkeyup="validar(this)" value="<?php echo $nm_cpf; ?>"/> 
+                CPF <input type="text" name="nm_cpf" class="form-control" id="nm_cpf" placeholder="XXX.XXX.XXX-XX" data-rule="minlen:4" data-msg="" maxlength="14" onfocusout="validar(this);" onkeyup="validar(this);"  value="<?php echo $nm_cpf; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">

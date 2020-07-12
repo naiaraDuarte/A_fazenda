@@ -68,7 +68,7 @@ function zerofill(i) {
     return (i < 10 ? '0' : '') + i;
 }
 
-function getDateString(this) {
+function getDateString() {
     const date = new Date();
     const year = date.getFullYear();
     const month = zerofill(date.getMonth()+1);
