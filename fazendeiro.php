@@ -112,7 +112,7 @@
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    RG <input type="number" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" onfocusout="validar(this);" onkeyup="validar(this);" value="<?php echo $nm_rg; ?>"/> 
+                    RG <input type="text" name="nm_rg" class="form-control" id="nm_rg" placeholder="Digite o RG" data-rule="minlen:4" data-msg="" maxlength="9" onfocusout="validar(this);" onkeyup="validar(this);" value="<?php echo $nm_rg; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">

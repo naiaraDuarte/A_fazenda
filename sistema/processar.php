@@ -3,7 +3,6 @@
     $tipo = filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_STRING);
     $id = filter_input(INPUT_POST, 'id',FILTER_SANITIZE_STRING);
 
-    // FUNCIONANDO
     if($tipo == 'tb_coleta_leite') {
         $cd_criador = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
         $data_coleta = filter_input(INPUT_POST, 'coleta', FILTER_SANITIZE_STRING);
@@ -21,8 +20,6 @@
             header('Location: ../coletaLeite.php');
         }
     }
-
-    // FUNCIONANDO
     if($tipo == 'tb_criador') {
         $nm_nome = filter_input(INPUT_POST, 'nm_nome', FILTER_SANITIZE_STRING);
         $dt_nasc = filter_input(INPUT_POST, 'dt_nasc', FILTER_SANITIZE_STRING);
@@ -53,8 +50,6 @@
         }
     }
 
-    // FUNCIONANDO
-
     if($tipo == 'tb_fazendeiro') {
         $nm_nome = filter_input(INPUT_POST, 'nm_nome', FILTER_SANITIZE_STRING);
         $dt_nasc = filter_input(INPUT_POST, 'dt_nasc', FILTER_SANITIZE_STRING);
@@ -65,17 +60,16 @@
            
 
         if($id == NULL) {
-            $sql = sprintf("INSERT INTO `tb_fazendeiro` (`NM_NOME`, `DT_NASC`, `NM_CPF`, `NM_RG`, `NM_SEXO`, 'NM_ENDERECO') VALUES ('%s','%s','%s','%s','%s','%s')", $nm_nome, $dt_nasc, $nm_cpf, $nm_rg, $nm_sexo, $nm_endereco);
+            $sql = sprintf("INSERT INTO `tb_fazendeiro`(`NM_NOME`, `DT_NASC`, `NM_CPF`, `NM_RG`, `NM_SEXO`, `NM_ENDERECO`) VALUES ('%s','%s','%s','%s','%s','%s')", $nm_nome, $dt_nasc, $nm_cpf, $nm_rg, $nm_sexo, $nm_endereco);
              execute($sql);
              header('Location: ../fazendeiro.php');
          } 
         else{
-            $sql = sprintf("UPDATE `tb_fazendeiro` SET `NM_NOME`= '%s',`DT_NASC`= '%s' ,`NM_CPF`= '%s',`NM_RG`= '%s',`NM_SEXO`= '%s','NM_ENDERECO'='%s', WHERE '%s'", $nm_nome, $dt_nasc, $nm_cpf, $nm_rg, $nm_sexo, $nm_endereco, $id);
+            $sql = sprintf("UPDATE `tb_fazendeiro` SET `NM_NOME`= '%s',`DT_NASC`= '%s',`NM_CPF`= '%s',`NM_RG`= '%s',`NM_SEXO`= '%s',`NM_ENDERECO`= '%s' WHERE `CD_CODIGO` = '%s'", $nm_nome, $dt_nasc, $nm_cpf, $nm_rg, $nm_sexo, $nm_endereco, $id);
              execute($sql);
              header('Location: ../fazendeiro.php');
         }
     }
-    // FUNCIONANDO
     if($tipo == 'tb_gado') {
         $cd_rebanho = filter_input(INPUT_POST, 'cd_rebanho', FILTER_SANITIZE_STRING);
         $nm_nome = filter_input(INPUT_POST, 'nm_nome', FILTER_SANITIZE_STRING);
@@ -98,7 +92,6 @@
         }
 
     }
-    // FUNCIONANDO
     if($tipo == 'tb_gado_leiteiro') {
         $cd_criador = filter_input(INPUT_POST, 'cd_criador', FILTER_SANITIZE_STRING);
         $cd_gado = filter_input(INPUT_POST, 'cd_gado', FILTER_SANITIZE_STRING);
@@ -114,7 +107,6 @@
              header('Location: ../gadoLeiteiro.php');
         }
     }
-    // FUNCIONANDO
     if($tipo == 'tb_rebanho') {
         $cd_fazendeiro = filter_input(INPUT_POST, 'cd_fazendeiro', FILTER_SANITIZE_STRING);
         
