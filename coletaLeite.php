@@ -90,10 +90,10 @@
         <div class="row">
 
           <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <form action="processar.php" method="post" class="email-form">
+            <form action="sistema/processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Criador: <input type="number" name="name" class="form-control" id="name" placeholder="Digite o criador" data-rule="minlen:4" data-msg="" onfocusout="validar(this);" onkeyup="validar(this);" value="<?php echo $cd_criador; ?>"/> 
+                    Criador: <input type="number" name="name" class="form-control" id="name" placeholder="Digite o criador" data-rule="minlen:4" data-msg="" value="<?php echo $cd_criador; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">

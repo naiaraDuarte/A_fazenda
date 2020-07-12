@@ -97,7 +97,7 @@
         <div class="row">
 
           <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <form action="processar.php" method="post" class="email-form">
+            <form action="sistema/processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
                     Nome: <input type="text" name="nm_nome" class="form-control" id="nm_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onfocusout="validar(this);" onkeyup="validar(this);" value="<?php echo $nm_nome; ?>"/> 
