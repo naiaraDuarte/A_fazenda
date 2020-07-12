@@ -100,7 +100,7 @@
             <form action="processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onkeypress="valithisdar();" value="<?php echo $nm_nome; ?>"/> 
+                    Nome: <input type="text" name="nm_nome" class="form-control" id="nm_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onkeypress="valithisdar();" value="<?php echo $nm_nome; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
@@ -122,11 +122,11 @@
                 <div class="col-lg-7 form-group">
                   Sexo 
                   <label>
-                    <input name="sexo" type="radio" id="Feminino" value="F" <?php echo ($nm_sexo == 'F' || $id == NULL) ? 'checked' : '' ?>/>
+                    <input name="nm_sexo" type="radio" id="feminino" value="F" <?php echo ($nm_sexo == 'F' || $id == NULL) ? 'checked' : '' ?>/>
                     <span>Feminino</span>
                 </label>
                 <label>
-                    <input name="sexo" type="radio" id="masculino" value="M" <?php echo ($nm_sexo == 'M') ? 'checked' : '' ?>/>
+                    <input name="nm_sexo" type="radio" id="masculino" value="M" <?php echo ($nm_sexo == 'M') ? 'checked' : '' ?>/>
                     <span>Masculino</span>
                 </label>                  
                 <div class="validate"></div>
