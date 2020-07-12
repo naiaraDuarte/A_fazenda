@@ -25,7 +25,7 @@
             <td><?php echo $dados['CD_MAE']; ?></td>
             <td><?php echo $dados['VL_PRECO']; ?></td>
             <td style="width: 150px;">
-            <a title="Alterar" href="rebanho.php?id=<?php echo $dados['CD_CODIGO']; ?>"><i class="material-icons">create</i></a>
+            <a title="Alterar" href="gado.php?id=<?php echo $dados['CD_CODIGO']; ?>"><i class="material-icons">create</i></a>
                 <a title="Deletar" href="sistema/apagar.php?id=<?php echo $dados['CD_CODIGO'];?>&tipo=tb_gado"><i class="material-icons">delete</i></a>
             </td>
         </tr>

@@ -1,5 +1,30 @@
 <?php include 'sistema/database.php';
   $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_STRING);
+
+  $cd_rebanho = '';
+  $nm_nome = '';
+  $dt_nasc = '';
+  $nm_sexo = '';
+  $cd_pai = '';
+  $cd_mae = '';
+  $vl_preco = '';
+
+  if($id != NULL) {
+    $sql = sprintf("SELECT * FROM `tb_gado` WHERE `CD_CODIGO` = '%s'", $id);
+    $consulta = execute_query($sql);
+
+    if(isset($consulta)) {
+      foreach($consulta as $dado) {
+        $cd_rebanho = $dado['CD_REBANHO'];
+        $nm_nome = $dado['NM_NOME'];
+        $dt_nasc = $dado['DT_NASC'];
+        $nm_sexo = $dado['NM_SEXO'];
+        $cd_pai = $dado['CD_PAI'];
+        $cd_mae = $dado['CD_MAE'];
+        $vl_preco = $dado['VL_PRECO'];
+      }
+    }
+  }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,43 +102,43 @@
             <form action="processar.php" method="post" class="email-form">
               <div class="form-row">
                 <div class="col-lg-6 form-group">
-                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onkeyup="validar(this)"/> 
+                    Nome: <input type="text" name="cd_nome" class="form-control" id="cd_nome" placeholder="Digite o nome" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" value="<?php echo $nm_nome; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" onkeyup="validar(this)"/> 
+                    Data nascimento: <input type="date" name="dt_nasc" class="form-control" id="dt_nasc" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" value="<?php echo $dt_nasc; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Rebanho <input type="text" name="cd_rebanho" class="form-control" id="cd_rebanho" placeholder="Digite o rebanho" data-rule="minlen:4" data-msg="" onkeyup="validar(this)"/> 
+                    Rebanho <input type="text" name="cd_rebanho" class="form-control" id="cd_rebanho" placeholder="Digite o rebanho" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" value="<?php echo $cd_rebanho; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Preço R$: <input type="number" name="vl_preco" class="form-control" id="vl_preco" placeholder="Digite o preço" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" min="0"/> 
+                    Preço R$: <input type="number" name="vl_preco" class="form-control" id="vl_preco" placeholder="Digite o preço" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" min="0" value="<?php echo $vl_preco; ?>"/> 
                   <div class="validate"></div>
                   </div>              
                 <div class="col-lg-6 form-group">
-                    Pai <input type="text" name="cd_pai" class="form-control" id="cd_pai" placeholder="Digite o Pai" data-rule="minlen:4" data-msg="" onkeyup="validar(this)"/> 
+                    Pai <input type="text" name="cd_pai" class="form-control" id="cd_pai" placeholder="Digite o Pai" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" value="<?php echo $cd_pai; ?>"/> 
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-6 form-group">
-                    Mãe <input type="text" name="cd_mae" class="form-control" id="cd_mae" placeholder="Digite a Mãe" data-rule="minlen:4" data-msg="" onkeyup="validar(this)"/> 
+                    Mãe <input type="text" name="cd_mae" class="form-control" id="cd_mae" placeholder="Digite a Mãe" data-rule="minlen:4" data-msg="" onkeyup="validar(this)" value="<?php echo $cd_mae; ?>"/> 
                   <div class="validate"></div>
                 </div>              
                 <div class="col-lg-7 form-group">
                   Sexo 
                   <label>
-                    <input name="sexo" type="radio" id="Feminino" value="Feminino" checked onkeyup="validar(this)"/>
+                    <input name="sexo" type="radio" id="Feminino" value="F" checked onkeyup="validar(this)" <?php echo ($nm_sexo == 'F' || $id == NULL) ? 'checked' : '' ?>/>
                     <span>Feminino</span>
                 </label>
                 <label>
-                    <input name="sexo" type="radio" id="masculino" value="Masculino"/>
+                    <input name="sexo" type="radio" id="masculino" value="M" <?php echo ($nm_sexo == 'M' || $id == NULL) ? 'checked' : '' ?>/>
                     <span>Masculino</span>
                 </label>                  
                 <div class="validate"></div>
               </div>                  
               <div class="text-center">
-              <button type="submit" onclick="gravar();"><?php echo ($id != NULL) ? 'Alterar' : 'Cadastrar'; ?></button>
+                <button type="submit" onclick="gravar();"><?php echo ($id != NULL) ? 'Alterar' : 'Cadastrar'; ?></button>
                 <button type="reset">Limpar</button>
               </div>
                 <input type="hidden" name="tipo" value="tb_gado">
