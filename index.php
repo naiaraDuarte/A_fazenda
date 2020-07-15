@@ -1,3 +1,10 @@
+<?php
+  session_start();
+
+  if(!isset($_SESSION['id'])) {
+    header('Location: login.php');
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,6 +60,7 @@
             </ul>
           </li>
           <li><a href="#about">Sobre</a></li>
+          <li><a href="logout.php">Sair</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
