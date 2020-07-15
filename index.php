@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  if(!isset($_SESSION['id'])) {
+  if(empty($_SESSION['id'])) {
     header('Location: login.php');
   }
 ?>
@@ -48,6 +48,7 @@
 
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
+          <li class><a>Bem Vindo, <?php echo $_SESSION['username']; ?></a></li>
           <li class="active"><a href="index.php">Home</a></li>
           <li class="drop-down"><a href="">Funções</a>
             <ul>

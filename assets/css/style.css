@@ -135,6 +135,19 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   margin: 0;
   max-height: 40px;
 }
+.login-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#login {
+  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+}
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
