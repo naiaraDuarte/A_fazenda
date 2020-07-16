@@ -73,11 +73,11 @@
           <li class="active"><a href="index.php">Home</a></li>
           <li class="drop-down"><a href="">Funções</a>
             <ul>
+              <li><a href="gado.php">Gado</a></li>
               <li><a href="coletaLeite.php">Coleta de leite</a></li>
               <li><a href="gadoLeiteiro.php">Gado leiteiro</a></li>
-              <li><a href="fazendeiro.php">Fazendeiro</a></li>
               <li><a href="rebanho.php">Rebanho</a></li>
-              <li><a href="gado.php">Gado</a></li>
+              <li><a href="fazendeiro.php">Fazendeiro</a></li>
               <li><a href="criador.php">Criador</a></li>
             </ul>
           </li>
