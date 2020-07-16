@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/07/2020 às 19:19
+-- Tempo de geração: 16/07/2020 às 00:34
 -- Versão do servidor: 10.4.11-MariaDB
 -- Versão do PHP: 7.4.3
 
@@ -108,6 +108,19 @@ CREATE TABLE `tb_rebanho` (
   `CD_FAZENDEIRO` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `senha` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Índices de tabelas apagadas
 --
@@ -149,6 +162,12 @@ ALTER TABLE `tb_rebanho`
   ADD PRIMARY KEY (`CD_CODIGO`);
 
 --
+-- Índices de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de tabelas apagadas
 --
 
@@ -187,6 +206,12 @@ ALTER TABLE `tb_gado_leiteiro`
 --
 ALTER TABLE `tb_rebanho`
   MODIFY `CD_CODIGO` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

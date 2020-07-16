@@ -12,7 +12,6 @@
 
         $sql = "SELECT * FROM `usuarios` WHERE `username` = '$username' AND `senha` = '$password'";
         $resultado = execute_query($sql);
-        //$resultado = array("id"=>0, "username"=>"will", 'email'=>"wil@123");
 
         if(isset($resultado)) {
             foreach($resultado as $usuario) {
